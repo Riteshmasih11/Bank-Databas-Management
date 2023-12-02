@@ -24,12 +24,12 @@ WHERE c.id IN (
 		FROM Loan AS l))
 GROUP BY gender 
 ORDER BY count DESC;
-# 4. 	List of customers that have never had a loan
+# 4.List of customers that have never had a loan
 select concat(first_name," ",last_name) from customer c where c.id in
  (select customer_id from account a where a.id 
  not in (select account_id
 from loan as l));
-# Custom: Find customers who have no open accounts.
+# 5. Find customers who have no open accounts.
 select concat(first_name," ",last_name) from customer c where c.id not in (select customer_id from account  );
 
  
